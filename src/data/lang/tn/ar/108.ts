@@ -1,0 +1,18 @@
+import type { TranslationType } from "./type";
+
+const ar: TranslationType[] = [
+  {
+    "id": 1,
+    "text": "إِنَّآ أَعۡطَيۡنَٰكَ ٱلۡكَوۡثَرَ"
+  },
+  {
+    "id": 2,
+    "text": "فَصَلِّ لِرَبِّكَ وَٱنۡحَرۡ"
+  },
+  {
+    "id": 3,
+    "text": "إِنَّ شَانِئَكَ هُوَ ٱلۡأَبۡتَرُ"
+  }
+];
+
+export default ar;

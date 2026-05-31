@@ -1,0 +1,486 @@
+import type { TranslationType } from "./type";
+
+const en: TranslationType[] = [
+  {
+    "id": 1,
+    "text": "Yaaa aiyuhal lazeena aamanoo awfoo bil'uqood; uhillat lakum baheematul an'aami illaa maa yutlaa 'alaikum ghaira muhillis saidi wa antum hurum; innal laaha yahkumu maa yureed"
+  },
+  {
+    "id": 2,
+    "text": "Yaaa aiyuhal lazeena aamanoo laa tuhilloo sha'aaa 'iral laahi wa lash Shahral Haraama wa lal hadya wa lal qalaaa'ida wa laa aaammeenal Baital Haraama yabtaghoona fadlam mir Rabbihim wa ridwaanaa; wa izaa halaltum fastaadoo; wa laa yajrimannakum shana aanu qawmin an saddookum 'anil Masjidil-Haraami an ta'tadoo; wa ta'aawanoo 'alalbirri wattaqwaa; wa laa ta'aawanoo 'alal ismi wal'udwaan; wattaqul laah; innal laaha shadeedul 'iqaab"
+  },
+  {
+    "id": 3,
+    "text": "Hurrimat 'alaikumul maitatu waddamu wa lahmul khinzeeri wa maaa uhilla lighiril laahi bihee walmun khani qatu wal mawqoozatu wal mutarad diyatu wanna teehatu wa maaa akalas sabu'u illaa maa zakkaitum wa maa zubiha 'alan nusubi wa an tastaqsimoo bil azlaam; zaalikum fisq; alyawma ya'isal lazeena kafaroo min deenikum falaa takhshawhum wakh shawn; alyawma akmaltu lakum deenakum wa atmamtu 'alaikum ni'matee wa radeetu lakumul Islaama deenaa; famanidturra fee makhmasatin ghaira mutajaanifil li ismin fa innallaaha Ghafoorur Raheem"
+  },
+  {
+    "id": 4,
+    "text": "Yas'aloonaka maazaaa uhilla lahum; qul uhilla lakumuttaiyibaatu wa maa'allamtum minal jawaarihi mukallibeena tu'allimoonahunnamimmaa 'allamakumul laahu fakuloo mimmaaa amsakna 'alaikum wazkurus mal laahi 'alaih; wattaqul laah; innal laaha saree'ul hisaab"
+  },
+  {
+    "id": 5,
+    "text": "Alyawma uhilla lakumut taiyibaatu wa ta'aamul lazeena ootul Kitaaba hillul lakum wa ta'aamukum hillul lahum wal muhsanaatu minal mu'minaati walmuhsanaatu minal lazeena ootul Kitaaba min qablikum izaaa aataitumoohunna ujoorahunna muhsineena ghaira musaafiheena wa laa muttakhizeee akhdaan; wa mai yakfur bil eemaani faqad habita 'amaluhoo wa huwa fil Aaakhirati minal khaasireen"
+  },
+  {
+    "id": 6,
+    "text": "Yaaa aiyuhal lazeena aamanoo izaa qumtum ilas Salaati faghsiloo wujoohakum wa Aidiyakum ilal maraafiqi wamsahoo biru'oosikum wa arjulakum ilal ka'bayn; wa in kuntum junuban fattahharoo; wain kuntum mardaaa aw'alaa safarin aw jaaa'a ahadum minkum minal ghaaa'iti aw laamastumunnisaaa'a falam tajidoo maaa'an fatayammamoo sa'eedan taiyiban famsahoo biwujoohikum wa aideekum minh; ma yureedul laahu liyaj'ala 'alaikum min harajinw walaakiny yureedu liyutahhirakum wa liyutimma ni'matahoo 'alaikum la'allakum tashkuroon"
+  },
+  {
+    "id": 7,
+    "text": "Wazkuroo ni'matal laahi 'alaikum wa meesaaqahul lazee waasaqakum biheee iz qultum sami'naa wa ata'naa wattaqul laah; innal laaha 'aleemum bizaatis sudoor"
+  },
+  {
+    "id": 8,
+    "text": "Yaaa aiyuhal lazeena aamaanoo koonoo qawwaa meena lillaahi shuhadaaa'a bilqist, wa laa yajrimannakum shana aanu qawmin 'alaaa allaa ta'diloo; i'diloo; huwa aqrabu littaqwaa wattaqul laah; innal laaha khabeerum bimaa ta'maloon"
+  },
+  {
+    "id": 9,
+    "text": "Wa'adal laahul lazeena aamanoo wa 'amilus saalihaati lahum maghfiratunw wa ajrun 'azeem"
+  },
+  {
+    "id": 10,
+    "text": "Wallazeena kafaroo wa kazzaboo bi Aayaatinaaa ulaaa'ika Ashaabul Jaheem"
+  },
+  {
+    "id": 11,
+    "text": "Yaa aiyuhal lazeena aamanuz kuroo ni'matallaahi 'alaikum iz hamma qawmun ai yabsutooo ilaikum aidiyahum fakaffa aidiyahum 'ankum wattaqullaah; wa'alal laahi fal yatawakkalil mu'minoon"
+  },
+  {
+    "id": 12,
+    "text": "Wa laqad akhazal laahu meesaaqa Banee Israaa'eela wa ba'asnaa minhumus nai 'ashara naqeebanw wa qaalal laahu innee ma'akum la'in aqamtumus Salaata wa aataitumuz Zakaata wa aamantum bi Rusulee wa'azzartumoohum wa aqradtumul laaha qardan hasanal la ukaffiranna 'ankum saiyiaatikum wa la udkhilan nakum Jannaatin tajree min tahtihal anhaar; faman kafara ba'da zaalika minkum faqad dalla sawaaa'as Sabeel"
+  },
+  {
+    "id": 13,
+    "text": "Fabimaa naqdihim meesaa qahum la'annaahum wa ja'alnaa quloobahum qaasiyatai yuharrifoonal kalima 'ammawaadi'ihee wa nasoo hazzam mimmaa zukkiroo bih; wa laa tazaalu tattali'u 'alaa khaaa'inatim minhum illaa qaleelam minhum fa'fu 'anhum wasfah; innal laaha yuhibbul muhsineen"
+  },
+  {
+    "id": 14,
+    "text": "Wa minal lazeena qaalooo innaa nasaaraaa akhaznaa meesaaqahum fanasoo hazzam mimmaa zukkiroo bihee fa aghrainaa bainahumul 'adaawata walbaghdaaa'a ilaa yawmil Qiyaamah; wa sawfa yunabbi'uhumul laahu bimaa kaanoo yasna'oon"
+  },
+  {
+    "id": 15,
+    "text": "Yaaa Ahlal kitaabi qad jaaa'akum Rasoolunaa yubaiyinu lakum kaseeram mimmmaa kuntum tukhfoona minal Kitaabi wa ya'foo 'an kaseer; qad jaaa'akum minal laahi noorunw wa Kitaabum Mubeen"
+  },
+  {
+    "id": 16,
+    "text": "Yahdee bihil laahu manit taba'a ridwaanahoo subulas salaami wa yukhrijuhum minaz zulumaati ilan noori bi iznihee wa yahdeehim ilaa Siraatim Mustaqeem"
+  },
+  {
+    "id": 17,
+    "text": "Laqad kafaral lazeena qaalooo innal laaha huwal maseehub nu Maryam; qul famany- yamliku minal laahi shai'an in araada ai yuhlikal Maseehab na Maryama wa ummahoo wa man fil ardi jamee'aa, wa lillaahi mulkus samaawaati wal ardi wa maa bainahumaa; yakhluqu maa Yashaaa'; wallaahu 'alaa kulli shai'in Qadeer"
+  },
+  {
+    "id": 18,
+    "text": "Wa qaalatil Yahoodu wan Nasaaraa nahnu abnaaa'ul laahi wa ahibbaaa'uh; qul falima yu'azzibukum bizunoobikum bal antum basharum mimman khalaq; yaghfiru limai yashaaa'u wa yu'azzibu mai yashaaa'; wa lillaahi mulkus samaawaati wal ardi wa maa bainahumaa wa ilaihil maseer"
+  },
+  {
+    "id": 19,
+    "text": "Yaaa Ahlal Kitaabi qad jaaa'akum Rasoolunaa yubaiyinu lakum 'alaa fatratim minar Rusuli an taqooloo maa jaaa'anaa mim basheerinw wa laa nazeerin faqad jaaa'akum basheerunw wa nazeer; wallaahu 'alaa kulli shai'in Qadeer"
+  },
+  {
+    "id": 20,
+    "text": "Wa iz qaala Moosaa liqawmihee yaa qawmiz kuroo ni'matal laahi 'alaikum iz ja'ala feekum ambiyaaa'a wa ja'alakum mulookanw wa aataakum maa lam yu'ti ahadam minal 'aalameen"
+  },
+  {
+    "id": 21,
+    "text": "Yaa qawmid khulul Ardal Muqaddasatal latee katabal laahu lakum wa laa tartaddoo 'alaaa adbaarikum fatanqaliboo khaasireenn"
+  },
+  {
+    "id": 22,
+    "text": "Qaaloo yaa Moosaaa innaa feehaa qawman jabbaareena wa innaa lan nadkhulahaa hattaa yakhrujoo minhaa fa-iny yakhrujoo minhaa fa innaa daakhiloon"
+  },
+  {
+    "id": 23,
+    "text": "Qaala rajulaani minal lazeena yakhaafoona an'amal laahu 'alaihimad khuloo 'alaihimul baab, fa izaa dakhaltumoohu fa innakum ghaaliboon; wa 'alal laahi fatawakkalooo in kuntum mu'mineen"
+  },
+  {
+    "id": 24,
+    "text": "Qaaloo yaa Moosaaa innaa lan nadkhulahaa abadam maa daamoo feehaa fazhab anta wa Rabbuka faqaatilaaa innaa haahunaa qaa'idoon"
+  },
+  {
+    "id": 25,
+    "text": "Qaala Rabbi innee laaa amliku illaa nafsee wa akhee fafruq bainanaa wa bainal qawmil faasiqeen"
+  },
+  {
+    "id": 26,
+    "text": "Qaala fa innahaa muhar ramatun 'alaihim arba'eena sanah; yateehoona fil ard; falaa taasa 'alal qawmil faasiqeen"
+  },
+  {
+    "id": 27,
+    "text": "Watlu 'alaihim naba abnai Aadama bilhaqq; iz qarrabaa qurbaanan fatuqubbila min ahadihimaa wa lam yutaqabbal minal aakhari qaala la aqtulannnaka qaala innamaa yataqabbalul laahu minal muttaqeen"
+  },
+  {
+    "id": 28,
+    "text": "La'im basatta ilaiya yadaka litaqtulanee maaa ana bibaasitiny yadiya ilaika li aqtulaka inneee akhaaful laaha Rabbal 'aalameen"
+  },
+  {
+    "id": 29,
+    "text": "Inee ureedu an tabooo'a bi ismee wa ismika fatakoona min As-haabin Naar; wa zaalika jazaaa'uz zaalimeen"
+  },
+  {
+    "id": 30,
+    "text": "Fatawwa'at lahoo nafsu hoo qatla akheehi faqatalahoo fa asbaha minal khaasireen"
+  },
+  {
+    "id": 31,
+    "text": "Faba'asal laahu ghuraabai yabhasu fil ardi liyuriyahoo kaifa yuwaaree saw'ata akheeh; qaala yaa wailataaa a'ajaztu an akoona misla haazal ghuraabi fa uwaariya saw ata akhee fa asbaha minan naadimeen"
+  },
+  {
+    "id": 32,
+    "text": "Min ajli zaalika katabnaa 'alaa Banee Israaa'eela annahoo man qatala nafsam bighairi nafsin aw fasaadin fil ardi faka annammaa qatalan naasa jamee'anw wa man ahyaahaa faka annamaaa ahyan naasa jamee'aa; wa laqad jaaa'at hum Rusulunaa bilbaiyinaati summa inna kaseeram minhum ba'da zaalika fil ardi lamusrifoon"
+  },
+  {
+    "id": 33,
+    "text": "Innamaa jazaaa'ul lazeena yuhaariboonal laaha wa Rasoolahoo wa yas'awna fil ardi fasaadan ai yuqattalooo aw yusallabooo aw tuqatta'a aideehim wa arjuluhum min khilaafin aw yunfaw minalard; zaalika lahum khizyun fid dunyaa wa lahum fil Aakhirati 'azaabun 'azeem"
+  },
+  {
+    "id": 34,
+    "text": "Illal lazeena taaboo min qabli an taqdiroo 'alaihim fa'lamooo annnal laaha Ghafoorur Raheem"
+  },
+  {
+    "id": 35,
+    "text": "Yaaa aiyuhal lazeena aamanut taqul laaha wabtaghooo ilaihil waseelata wa jaahidoo fee sabeelihee la'allakum tuflihoon"
+  },
+  {
+    "id": 36,
+    "text": "Innal lazeena kafaroo law anna lahum maa fil ardi jamee'anw wa mislahoo ma'ahoo liyaftadoo bihee min 'azaabi Yawmil Qiyaamati maa tuqubbila minhum wa lahum azaabun aleem"
+  },
+  {
+    "id": 37,
+    "text": "Yureedoona ai yakhrujoo minan Naari wa maa hum bikhaari jeena minhaa wa lahum 'azaabum muqeem"
+  },
+  {
+    "id": 38,
+    "text": "Wassaariqu wassaariqatu faqta'oo aidiyahumaa jazaaa'am bimaa kasabaa nakaalam minal laah; wallaahu 'Azeezun hakeem"
+  },
+  {
+    "id": 39,
+    "text": "Faman taaba mim ba'di zulmihee wa aslaha fa innal laaha yatoobu 'alaih; innal laaha Ghafoorur Raheem"
+  },
+  {
+    "id": 40,
+    "text": "Alam ta'lam annal laaha lahoo mulkus samaawaati wal ardi yu'az zibu many-yashaa'u wa yaghfiru limany-yashaaa'; wallaahu 'alaa kulli shai'in Qadeer"
+  },
+  {
+    "id": 41,
+    "text": "Yaaa ayyuhar Rasoolu laa yahzunkal lazeena yusaa ri'oona fil kufri minal lazeena qaaloo aamannaa bi afwaahihim wa lam tu'min quloobuhum; wa minal lazeena haadoo sammaa'oona lilkazibi sammaa'oona liqawmin aakhareena lam ya'tooka yuharrifoonal kalima mim ba'di mawaadi'ihee yaqooloona in ooteetum haazaa fakhuzoohu wa il lam tu'tawhu fahzaroo; wa many-yuridil laahu fitnatahoo falan tamlika lahoo minal laahi shai'aa; ulaaa 'ikal lazeena lam yuridil laahu any-yutahhira quloobahum; lahum fid dunyaa khizyunw wa lahum fil Aakhirati'azaabun 'azeem"
+  },
+  {
+    "id": 42,
+    "text": "Sammaa'oona lilkazibi akkaaloona lissuht; fa in jaaa'ooka fahkum bainahum aw a'rid anhum wa in tu'rid 'anhum falany-yadurrooka shai'anw wa in hakamta fahkum bainahum bilqist; innal laaha yuhibbul muqsiteen"
+  },
+  {
+    "id": 43,
+    "text": "Wa kaifa yuhakkimoonaka wa 'indahumut Tawraatu feehaa hukmul laahi summa yatawallawna mim ba'di zaalik; wa maaa ulaaa'ika bilmu'mineen"
+  },
+  {
+    "id": 44,
+    "text": "Innaaa anzalnat Tawraata feehaa hudanw wa noor; yahkumu bihan Nabiyyoonal lazeena aslamoo lillazeena haadoo war rabbaaniyyoona wal ahbaaru bimas tuhfizoo min Kitaabil laahi wa kaanoo 'alaihi shuhadaaa'; falaa takhshawun naasa wakhshawni wa laa tashtaroo bi aayaatee samanan qaleelaa; wa mal lam yahkum bimaaa anzalal laahu fa ulaaa'ika humul kaafiroon"
+  },
+  {
+    "id": 45,
+    "text": "Wa katabnaa 'alaihim feehaaa annan nafsa binnafsi wal'aina bil'aini wal anfa bilanfi wal uzuna bil uzuni wassinna bissinni waljurooha qisaas; faman tasaddaqa bihee fahuwa kaffaaratul lah; wa mal lam yahkum bimaaa anzalal laahu fa ulaaa'ika humuz zalimoon"
+  },
+  {
+    "id": 46,
+    "text": "Wa qaffainaa 'alaaa aasaaarihim bi 'Eesab ni Maryama musaddiqal limaa baina yadaihi minat Tawraati wa aatainaahul Injeela feehi hudanw wa noorunw wa musaddiqal limaa baina yadaihi minat Tawraati wa hudanw wa maw'izatal lilmuttaqeen"
+  },
+  {
+    "id": 47,
+    "text": "Walyahkum Ahlul Injeeli bimaaa anzalal laahu feeh; wa mal lam yahkum bimaaa anzalal laahu fa ulaaa'ika humul faasiqoon"
+  },
+  {
+    "id": 48,
+    "text": "Wa anzalnaa ilaikal Kitaaba bilhaqqi musaddiqallimaa baina yadaihi minal Kitaabi wa muhaiminan 'alaihi fahkum bainahum bimaa anzalal laahu wa laa tattabi' ahwaaa'ahum 'ammaa jaaa'aka minal haqq; likullin ja'alnaa minkum shir'atanw wa minhaajaa; wa law shaaa'al laahu laja'alakum ummatanw waahidatanw wa laakil liyabluwakum fee maa aataakum fastabiqul khairaat; ilal laahi marji'ukum jamee'an fayunab bi'ukum bimaa kuntum feehi takhtalifoon"
+  },
+  {
+    "id": 49,
+    "text": "Wa anih kum bainahum bimaaa anzalal laahu wa laa tattabi' ahwaaa'ahum wahzarhum ai yaftinooka 'am ba'di maaa anzalal laahu ilaika fa in tawallaw fa'lam annamaa yureedul laahu ai yuseebahum biba'di zunoobihim; wa inna kaseeram minan naasi lafaasiqoon"
+  },
+  {
+    "id": 50,
+    "text": "Afahukmal jaahiliyyati yabghoon; wa man ahsanu minal laahi hukmal liqawminy yooqinoon"
+  },
+  {
+    "id": 51,
+    "text": "Yaaa aiyuhal lazeena aamanoo laa tattakhizul Yahooda wan nasaaraaa awliyaaa'; ba'duhum awliyaaa'u ba'd; wa mai yatawallahum minkum fa innahoo minhum; innal laaha laa yahdil qawmaz zaalimeen"
+  },
+  {
+    "id": 52,
+    "text": "Fataral lazeena fee quloobihim maraduny yusaari'oona feehim yaqooloona nakhshaaa an tuseebanaa daaa'irah; fa'asallaahu ai yaatiya bilfathi aw amrim min 'indihee fa yusbihoo 'alaa maaa asarroo feee anfusihim naadimeen"
+  },
+  {
+    "id": 53,
+    "text": "Wa yaqoolul lazeena aamanooo ahaaa'ulaaa'il lazeena aqsamoo billaahi jahda aimaanihim innahum lama'akum; habitat a'maaluhum fa asbahoo khaasireen"
+  },
+  {
+    "id": 54,
+    "text": "Yaa aiyuhal lazeena aamanoo mai yartadda minkum 'an deenihee fasawfa ya'tillaahu biqawminy yuhibbuhum wa yuhibboonahoo azillatin 'alal mu'mineena a'izzatin 'alal kaafireena yujaahidoona fee sabeelil laahi wa laa yakhaafoona lawmata laaa'im; zaalika fadlul laahi yu'teehi mai yashaaa'; wallaahu Waasi'un 'Aleem"
+  },
+  {
+    "id": 55,
+    "text": "Innamaa waliyyukumul laahu wa Rasooluhoo wal lazeena aamanul lazeena yuqeemoonas Salaata wa yu'toonaz Zakaata wa hum raaki'oon"
+  },
+  {
+    "id": 56,
+    "text": "Wa mai yatawallal laaha wa Rasoolahoo wallazeena aamanoo fa inna hizbal laahi humul ghaaliboon"
+  },
+  {
+    "id": 57,
+    "text": "Yaaa aiyuhal lazeena aamanoo laa tattakhizul lazeenat takhazoo deenakum huzuwanw wa la'ibam minal lazeena ootul Kitaaba min qablikum walkuffaara awliyaaa'; wattaqul laaha in kuntum mu'mineen"
+  },
+  {
+    "id": 58,
+    "text": "Wa izaa naadaitum ilas Salaatit takhazoohaa huzu wan'w wa la'ibaa; zaalika biannnahum qawmul laa ya'qiloon"
+  },
+  {
+    "id": 59,
+    "text": "Qul yaaa Ahlal Kitaabi hal tanqimoona minnaaa illaaa an aamannaa billaahi wa maaa unzila ilainaa wa maa unzila min qablu wa annna aksarakum faasiqoon"
+  },
+  {
+    "id": 60,
+    "text": "Qul hal unabbi'ukum bisharrim min zaalika masoobatan 'indal laah; malla'ana hul laahu wa ghadiba 'alaihi wa ja'ala minhumul qiradata wal khanaazeera wa 'abadat Taaghoot; ulaaa'ika sharrum makaananw wa adallu 'an Sawaaa'is Sabeel"
+  },
+  {
+    "id": 61,
+    "text": "Wa izaa jaaa'ookum qaalooo aamannaa wa qad dakhaloo bilkufri wa hum qad kharajoo bih; wallaahu a'lamu bimaa kaanoo yaktumoon"
+  },
+  {
+    "id": 62,
+    "text": "Wa taraa kaseeram minhum yusaari'oona fil ismi wal'udwaani wa aklihimus suht; labi'sa maa kaanoo ya'maloon"
+  },
+  {
+    "id": 63,
+    "text": "Law laa yanhaahumur rabbaaniyyoona wal ahbaaru 'an qawlihimul ismaa wa aklihimus suht; labi'sa maa kaanoo yasna'oon"
+  },
+  {
+    "id": 64,
+    "text": "Wa qaalatil Yahoodu Yadullaahi maghloolah; ghullat aideehim wa lu'inoo bimaa qaaloo; bal yadaahu mabsoo tataani yunfiqu kaifa yashaaa'; wa la yazeedanna kaseeramm minhum maaa unzila ilaika mir Rabbika tughyaananw wa kufraa; wa alqainaa bainahumul 'adaawata wal baghdaaa a' ilaa Yawmil Qiyaamah; kullamaaa awqadoo naaral lilharbi at fa-ahal laah; wa yas'awna fil ardi fasaadaa; wal laahu laa yuhibbul mufsideen"
+  },
+  {
+    "id": 65,
+    "text": "Wa law anna Ahlal Kitaabi aamanoo wattaqaw lakaffarnaa 'anhum saiyiaatihim wa la adkhalnaahu Jannaatin Na'eem"
+  },
+  {
+    "id": 66,
+    "text": "Wa law annahum aqaamut Tawraata wal Injeela wa maaa unzila ilaihim mir Rabbihim la akaloo min fawqihim wa min tahti arjulihim; minhum ummatum muqta sidatunw wa kaseerum minhum saaa'a maa ya'maloon"
+  },
+  {
+    "id": 67,
+    "text": "Yaaa aiyuhar Rasoolu balligh maaa unzila ilaika mir Rabbika wa il lam taf'al famaaa ballaghta Risaalatah; wallaahu ya'simuka minan naas; innal laaha laa yahdil qawmal kaafireen"
+  },
+  {
+    "id": 68,
+    "text": "Qul yaaa Ahlal Kitaabi lastum 'alaa shai'in hattaa tuqeemut Tawraata wal Injeela wa maaa unzila ilaikum mir Rabbikum; wa layazeedanna kaseeram minhum maa unzila ilaika mir Rabbika tugh yaananw wa kufran falaa taasa 'alal qawmil kaafireen"
+  },
+  {
+    "id": 69,
+    "text": "Innal lazeena aamanoo wallazeena haadoo was saabi'oona wan Nasaaraa man aamana billaahi wal yawmil Aakhiri wa 'amila saalihan falaa khawfun 'alaihim wa laa hum yahzanoon"
+  },
+  {
+    "id": 70,
+    "text": "Laqad akhaznaa meesaaqa Banee Israaa'eela wa arsalnaaa ilaihim Rusulan kullamaa jaaa'ahum Rasoolum bimaa laa tahwaaa anfusuhum fareeqan kazzaboo wa fareeqany yaqtuloon"
+  },
+  {
+    "id": 71,
+    "text": "Wa hasibooo allaa takoona fitnatun fa'amoo wa sammoo summa taabal laahu 'alaihim summa 'amoo wa sammoo kaseerum minhum; wallaahu baseerum bimaa ya'maloon"
+  },
+  {
+    "id": 72,
+    "text": "Laqad kafaral lazeena qaalooo innal laaha Huwal maseehub nu Maryama wa qaalal Maseehu yaa Baneee Israaa'eela u'budul laaha Rabbee wa Rabbakum innnahoo many- yushrik billaahi faqad harramal laahu 'alaihil jannata wa maa waahun Naaru wa maa lizzaalimeena min ansaar"
+  },
+  {
+    "id": 73,
+    "text": "laqad kafaral lazeena qaalooo innal laaha saalisu salaasah; wa maa min ilaahin illaaa Ilaahunw Waahid; wa illam yantahoo 'ammaa yaqooloona layamas sannal lazeena kafaroo minhum 'azaabun aleem"
+  },
+  {
+    "id": 74,
+    "text": "Afalaa yatooboona ilal laahi wa yastaghfiroonah; wallaahu Ghafoorur Raheem"
+  },
+  {
+    "id": 75,
+    "text": "Mal Maseehub nu Maryama illaa Rasoolun qad khalat min qablihir Rusulu wa ummuhoo siddeeqatun kaanaa yaa kulaanit ta'aam; unzur kaifa nubaiyinu lahumul Aayaati summan zur annaa yu'fakoon"
+  },
+  {
+    "id": 76,
+    "text": "Qul ata'budoona min doonil laahi maa laa yamliku lakum darranw wa laa naf'aa; wallaahu Huwas Samee'ul 'Aleem"
+  },
+  {
+    "id": 77,
+    "text": "Qul yaaa Ahlal Kitaabi laa taghloo fee deenikum ghairal haqqi wa laa tattabi'ooo ahwaaa'a qawmin qad dalloo min qablu wa adalloo kaseeranw wa dalloo 'an Sawaaa'is Sabeel"
+  },
+  {
+    "id": 78,
+    "text": "Lu'inal lazeena kafaroo mim Baneee israaa'eela 'alaa lisaani Daawooda wa 'Eesab ni Maryam; zaalika bimaa 'asaw wa kaanoo ya'tadoon"
+  },
+  {
+    "id": 79,
+    "text": "Kaanoo laa yatanaahawna 'am munkarin fa'alooh; labi'sa maa kaanoo yafa'loon"
+  },
+  {
+    "id": 80,
+    "text": "Taraa kaseeram minhum yatawallawnal lazeena kafaroo; labi'sa maa qaddamat lahum anfusuhum an sakhital laahu 'alaihim wa fil 'azaabi hum khaalidoon"
+  },
+  {
+    "id": 81,
+    "text": "Wa law kaanoo yu'minoona billaahi wan nabiyyi wa maaa unzila ilaihi mattakhazoohum awliyaaa'a wa laakinna kaseeram minhum faasiqoon"
+  },
+  {
+    "id": 82,
+    "text": "Latajidanna ashad dan naasi 'adaawatal lillazeena aamanul Yahooda wallazeena ashrakoo wa latajidanna aqrabahum mawaddatal lil lazeena aamanul lazeena qaalooo innaa Nasaaraa; zaalika bi anna minhum qiseeseena wa ruhbaananw wa annahum laa yastakbiroon"
+  },
+  {
+    "id": 83,
+    "text": "Wa izaa sami'oo maaa unzila ilar Rasooli taraaa a'yunahum tafeedu minad dam'i mimmmaa 'arafoo minalhaqq; yaqooloona Rabbanaaa aamannaa faktubnaa ma'ash shaahideen"
+  },
+  {
+    "id": 84,
+    "text": "Wa maa lanaa laa nu'minu billaahi wa maa jaaa'anaa minal haqqi wa natma'u ai yudkhilanaa Rabbunaa ma'al qawmis saaliheen"
+  },
+  {
+    "id": 85,
+    "text": "Fa asaabahumul laahu bimaa qaaloo Jannnaatin tajree min tahtihal anhaaru khaalideena feehaa; wa zaalika jazaaa'ul muhsineen"
+  },
+  {
+    "id": 86,
+    "text": "Wallazeena kafaroo wa kazzaboo bi Aayaatinaaa ulaaa'ika Ashaabul Jaheem"
+  },
+  {
+    "id": 87,
+    "text": "Yaaa aiyuhal lazeena aamanoo laa tuharrimoo taiyibaati maaa ahallal laahu lakum wa laa ta'tadooo; innal laaha laa yuhibbul mu'tadeen"
+  },
+  {
+    "id": 88,
+    "text": "Wa kuloo mimmaa razaqakumul laahu halaalan taiyibaa; wattaqul laahallazeee antum bihee mu'minoon"
+  },
+  {
+    "id": 89,
+    "text": "Laa yu'aakhizukumul laahu billaghwi feee aimaanikum wa laakiny yu'aakhizukum bimaa 'aqqattumul aimaana fa kaffaara tuhooo it'aamu 'asharati masaakeena min awsati maa tut'imoona ahleekum aw kiswatuhum aw tahreeru raqabatin fa man lam yajid fa Siyaamu salaasati aiyaam; zaalika kaffaaratu aimaanikum izaa halaftum; wahfazooo aimaanakum; kazaalika yubaiyinul laahu lakum Aayaatihee la'allakum tashkuroon"
+  },
+  {
+    "id": 90,
+    "text": "Yaaa aiyuhal lazeena aamanooo innamal khamru walmaisiru wal ansaabu wal azlaamu rijsum min 'amalish shaitaani fajtaniboohu la'al lakum tuflihoon"
+  },
+  {
+    "id": 91,
+    "text": "Innamaa yureedush Shaitaanu ai yooqi'a bainakumul 'adaawata wal baghdaaa'a fil khamri wal maisiri wa yasuddakum 'an zikril laahi wa 'anis Salaati fahal antum muntahoon"
+  },
+  {
+    "id": 92,
+    "text": "Wa atee'ul laaha wa atee'ur Rasoola wahzaroo; fa in tawal laitum fa'lamooo annamaa 'alaa Rasoolinal balaaghul mubeen"
+  },
+  {
+    "id": 93,
+    "text": "Laisa 'alal lazeena aamanoo wa 'amilus saalihaati junaahun feemaa ta'imooo izaa mat taqaw wa aamanoo wa 'amilus saalihaati summat taqaw wa aamanoo summat taqaw wa ahsanoo; wallaahu yuhibbul muhsineen"
+  },
+  {
+    "id": 94,
+    "text": "Yaaa aiyuhal lazeena aamanoo la yabluwannnakumul laahu bishai'im minas saidi tanaaluhooo aideekum wa rimaahukum liya'lamal laahu mai yakhaafuhoo bilghaib; famani' tadaa ba'da zaalika falahoo 'azaabun aleem"
+  },
+  {
+    "id": 95,
+    "text": "Yaaa aiyuhal lazeena aamanoo laa taqtulus saida wa antum hurum; wa man qatalahoo minkum mut'am midan fajazaaa'um mislu maa qatala minanna'ami yahkumu bihee zawaa 'adlim minkum hadyam baalighal Ka'bati aw kaffaaratun ta'aamu masaakeena aw 'adlu zaalika Siyaamal liyazooqa wabaala amrih; 'afal laahu 'ammaa salaf; wa man 'aada fayanta qimul laahu minh; wallaahu 'azeezun zuntiqaam"
+  },
+  {
+    "id": 96,
+    "text": "Uhilla lakum saidul bahri wa ta'aamuhoo mataa'al lakum wa lissaiyaarati wa hurrima 'alaikum saidul barri maa dumtum hurumaa; wattaqul laahal lazeee ilaihi tuhsharoon"
+  },
+  {
+    "id": 97,
+    "text": "Ja'alal laahul Ka'batal Baital Haraama qiyaamal linnaasi wash Shahral Haraama walhadya walqalaaa'id; zaalika lita'lamooo annal laaha ya'lamu maa fis samaawaati wa maa fil ardi wa annal laaha bikulli shai'in 'Aleem"
+  },
+  {
+    "id": 98,
+    "text": "I'lamooo annal laaha shadeedul 'iqaabi wa annal laaha Ghafoorur Raheem"
+  },
+  {
+    "id": 99,
+    "text": "Maa 'alar Rasooli illal balaagh; wallaahu ya'lamu maa tubdoona wa maa taktumoon"
+  },
+  {
+    "id": 100,
+    "text": "Qul laa yastawil khabeesu wattaiyibu wa law a'jabaka kasratul khabees; fattaqul laaha yaaa ulil albaabi la'allakum tuflihoon"
+  },
+  {
+    "id": 101,
+    "text": "Yaaa aiyuhal lazeena aamanoo laa tas'aloo 'an ashyaaa'a in tubda lakum tasu'kum wa in tas'aloo 'anhaa heena yunazzalul Qur'aanu tubda lakum; 'afallaahu 'anhaa; wallaahu Ghafoorun Haleem"
+  },
+  {
+    "id": 102,
+    "text": "Qad sa alahaa qawmum min qablikum summa asbahoo bihaa kaafireen"
+  },
+  {
+    "id": 103,
+    "text": "Maa ja'alal laahu mim baheeratinw wa laa saaa'ibatinw wa laa waseelatinw wa laa haaminw wa laakinnal lazeena kafaroo yaftaroona 'alallaahil kazib; wa aksaruhum laa ya'qiloon"
+  },
+  {
+    "id": 104,
+    "text": "Wa izaa qeela lahum ta'aalaw ilaa maaa anzalallaahu wa ilar Rasooli qaaloo hasbunaa maa wajadnaa 'alaihi aabaaa'anaa; awa law kaana aabaaa'uhum laa ya'lamoona shai'anw wa laa yahtadoon"
+  },
+  {
+    "id": 105,
+    "text": "Yaaa aiyuhal lazeena aamanoo 'alaikum anfusakum laa yadurrukum man dalla izah tadaitum; ilal laahi marji'ukum jamee'an fayunabbi'ukum bimaa kuntum ta'maloon"
+  },
+  {
+    "id": 106,
+    "text": "Yaaa aiyuhal lazeena aamanoo shahaadatu bainikum izaa hadara ahadakumul mawtu heenal wasiyyatis naani zawaa 'adlim minkum aw aakharaani min ghairikum in antum darabtum fil ardi fa asaabatkum museebatul mawt; tahbi soonahumaa mim ba'dis Salaati fa yuqsimaani billaahi inirtabtum laa nashtaree bihee samananw wa law kaana zaa qurbaa wa laa naktumu shahaadatal laahi innaaa izal laminal aasimeen"
+  },
+  {
+    "id": 107,
+    "text": "Fa in 'usira 'alaaa annahumas tahaqqaaa isman fa aakharaani yaqoomaani maqaamahumaa minal lazeenas tahaqqa 'alaihimul awlayaani fa yuqsimaani billaahi lashahaadatunaaa ahaqqu min shahaadatihimaaa wa ma'tadainaaa innaaa izal laminaz zaalimeen"
+  },
+  {
+    "id": 108,
+    "text": "Zaalika adnaaa ai ya'too bishshahaadati 'alaa wajhihaaa aw yakhaafooo an turadda aimaanum ba'da aimaanihim; wattaqul laaha wasma'oo; wallaahu laa yahdil qawmal faasiqeen"
+  },
+  {
+    "id": 109,
+    "text": "Yawma yajma'ul laahur Rusula fa yaqoolu maazaaa ujibtum qaaloo laa 'ilma lanaa innaka Anta 'Allaamul Ghuyoob"
+  },
+  {
+    "id": 110,
+    "text": "Iz qaalal laahu yaa 'Eesab-na-Maryamaz kur ni'matee 'alaika wa 'alaa waalidatika; iz aiyattuka bi Roohil Qudusi tukallimun naasa fil mahdi wa kahlanw wa iz 'allamtukal kitaaba wal Hikmata wa Tawraata wal Injeela wa iz Takhluqu minat teeni kahai 'atit tairi bi iznee fatanfukhu feeha fatakoonu tairam bi iznee wa tubri'ul akmaha wal abrasa bi iznee wa iz tukhrijul mawtaa bi iznee wa iz kafaftu Baneee Israaa'eela 'anka iz ji'tahum bil baiyinaati fa qaalal lazeena kafaroo minhum in haazaaa illaa sihrum mubeen"
+  },
+  {
+    "id": 111,
+    "text": "Wa iz awhaitu ilal hawaariyyeena an aaminoo bee wa bi Rasoolee qaalooo aamannaa washhad bi annanaa muslimoon"
+  },
+  {
+    "id": 112,
+    "text": "Iz qaalal hawaariyyoona yaa 'Eesab na Maryama hal yastatee'u Rabbuka ai yunaz zila alaina maaa'idatam minas samaaa'i qaalat taqul laaha in kuntum mu'mineen"
+  },
+  {
+    "id": 113,
+    "text": "Qaaloo nureedu an naakula minhaa wa tatama 'inna quloo bunaa wa na'lama an qad sadaqtana wa nakoona 'alaihaa minash shaahideen"
+  },
+  {
+    "id": 114,
+    "text": "Qaala 'Eesab nu Maryamal laahumma Rabbanaaa anzil 'alainaa maaa'idatam minas samaaa'i takoonu lanaa 'eedal li awwalinaa wa aakhirinaa wa Aayatam minka warzuqnaa wa Anta khairur raaziqeen"
+  },
+  {
+    "id": 115,
+    "text": "Qaalal laahu innee munaz ziluhaa 'alaikum famai yakfur ba'du minkum fa inneee u'azzibuhoo 'azaabal laaa u'azzibuhooo ahadam minal 'aalameen"
+  },
+  {
+    "id": 116,
+    "text": "Wa iz qaalal laahu yaa 'Eesab na Maryama 'a-anta qulta linnaasit takhizoonee wa ummiya ilaahaini min doonil laahi qaala Subhaanaka maa yakoonu leee an aqoola maa laisa lee bihaqq; in kuntu qultuhoo faqad 'alimtah; ta'lamu maa fee nafsee wa laaa a'alamu maa fee nafsik; innaka Anta 'Allaamul Ghuyoob"
+  },
+  {
+    "id": 117,
+    "text": "Maa qultu lahum illaa maaa amartanee bihee ani'budul laaha Rabbeee wa Rabbakum; wa kuntu 'alaihim shaheedam maa dumtu feehim falammaa tawaffaitanee kunta Antar Raqeeba 'alaihim; wa Anta 'alaa kulli shai'in Shaheed"
+  },
+  {
+    "id": 118,
+    "text": "In tu'azzibhum fa innahum ibaaduka wa in taghfir lahum fa innaka Antal 'Azzezul Hakeem"
+  },
+  {
+    "id": 119,
+    "text": "Qaalal laahu haaza yawmu yanfa'us saadiqeena sidquhum; lahum janaatunn tajree min tahtihal anhaaru khaalideena feehaaa abadaa; radiyal laahu 'anhum wa radoo 'anh; zaalikal fawzul 'azeem"
+  },
+  {
+    "id": 120,
+    "text": "Lillaahi mulkus samaawaati wal ardi wa maa feehinn; wa Huwa 'alaa kulli shai'inn Qadeer"
+  }
+];
+
+export default en;
