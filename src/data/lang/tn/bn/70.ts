@@ -1,6 +1,6 @@
 import type { translationType } from "./type";
 
-const bn: translationType = [
+const bn: translationType[] = [
   {
     id: 1,
     text: "ছাআলা ছাইলুম বি‘আযা-বিওঁ ওয়াকি‘।",
