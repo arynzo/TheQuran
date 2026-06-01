@@ -46,7 +46,7 @@ export default defineConfig({
             options: {
               cacheName: "surah-chunks-cache",
               expiration: {
-                maxEntries: 400,
+                maxEntries: 1000,
                 maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
               },
               cacheableResponse: {
