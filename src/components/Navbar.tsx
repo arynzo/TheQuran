@@ -1,11 +1,13 @@
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
+import Tooltip from "@mui/material/Tooltip";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import LightModeSharpIcon from "@mui/icons-material/LightModeSharp";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import TranslateSharpIcon from "@mui/icons-material/TranslateSharp";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
 import { useGlobalContext } from "../context/context";
 import { useNavigate } from "react-router-dom";
 
@@ -14,8 +16,17 @@ type Props = {
 };
 
 export default function Navbar({ title = "The Quran" }: Props) {
-  const { AppTheme, toggleTheme } = useGlobalContext();
+  const { AppTheme, toggleTheme, textSettings } = useGlobalContext();
   const navigator = useNavigate();
+
+  const gotoBookmark = (work: "navigate" | "isSaved") => {
+    if (work == "navigate") {
+      const [id, ayatid] = textSettings.bookmark.split(":");
+      navigator(`/surah/${id}?ayat=${ayatid}`);
+    } else {
+      return textSettings.bookmark;
+    }
+  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -76,28 +87,47 @@ export default function Navbar({ title = "The Quran" }: Props) {
             }}
           >
             {/* THEME ICON */}
-            <IconButton
-              color="inherit"
-              onClick={toggleTheme}
-              sx={{
-                flexShrink: 0,
-              }}
-            >
-              {AppTheme == "dark" ? <LightModeSharpIcon /> : <DarkModeIcon />}
-            </IconButton>
+            {gotoBookmark("isSaved") && (
+              <Tooltip title="Bookmark" arrow>
+                <IconButton
+                  color="inherit"
+                  onClick={() => {
+                    gotoBookmark("navigate");
+                  }}
+                  sx={{
+                    flexShrink: 0,
+                  }}
+                >
+                  <BookmarkIcon />
+                </IconButton>
+              </Tooltip>
+            )}
+            <Tooltip title="ChangeTheme" arrow>
+              <IconButton
+                color="inherit"
+                onClick={toggleTheme}
+                sx={{
+                  flexShrink: 0,
+                }}
+              >
+                {AppTheme == "dark" ? <LightModeSharpIcon /> : <DarkModeIcon />}
+              </IconButton>
+            </Tooltip>
 
             {/* LANGUAGE ICON */}
-            <IconButton
-              color="inherit"
-              onClick={() => {
-                navigator("/settings");
-              }}
-              sx={{
-                flexShrink: 0,
-              }}
-            >
-              <TranslateSharpIcon />
-            </IconButton>
+            <Tooltip title="Setting" arrow>
+              <IconButton
+                color="inherit"
+                onClick={() => {
+                  navigator("/settings");
+                }}
+                sx={{
+                  flexShrink: 0,
+                }}
+              >
+                <TranslateSharpIcon />
+              </IconButton>
+            </Tooltip>
           </Box>
         </Toolbar>
       </AppBar>

@@ -19,11 +19,12 @@ export default function ContextWrapper({ children }: Props) {
 
   const [textSettings, setTextSettings] = useState<Settings>(() => {
     const setting = {
-      ayatTranslation: "en",
-      secondTranslation: "bn",
+      ayatTranslation: "ar",
+      secondTranslation: "en",
       ayatSize: 26,
       translationSize: 16,
       ayatFont: "Amiri",
+      bookmark: "",
     };
     try {
       const settingsTheme = localStorage.getItem("settings");
@@ -52,9 +53,19 @@ export default function ContextWrapper({ children }: Props) {
     setTextSettings((prev) => ({ ...prev, ...changes }));
   };
 
+  const handleBookmarkSave = (bookmark: string) => {
+    handleSettingChange({ ...textSettings, bookmark });
+  };
+
   return (
     <GlobalContext.Provider
-      value={{ AppTheme, toggleTheme, textSettings, handleSettingChange }}
+      value={{
+        AppTheme,
+        toggleTheme,
+        textSettings,
+        handleSettingChange,
+        handleBookmarkSave,
+      }}
     >
       {children}
     </GlobalContext.Provider>

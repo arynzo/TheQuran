@@ -6,6 +6,7 @@ type ContextTypes = {
   toggleTheme: () => void;
   textSettings: Settings;
   handleSettingChange: (changes: Settings) => void;
+  handleBookmarkSave: (bookmark: string) => void;
 };
 
 export const GlobalContext = createContext<ContextTypes | null>(null);

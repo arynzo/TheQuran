@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { type SelectChangeEvent } from "@mui/material/Select";
 import {
   AppBar,
   Toolbar,
@@ -15,15 +13,17 @@ import {
   Button,
   Paper,
   Stack,
-  Snackbar,
-  Alert,
   Divider,
 } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import SaveIcon from "@mui/icons-material/Save";
+import AlertPopup from "../components/Alert";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../context/context";
-import type { Settings } from "../context/type";
 import { getCurrentLangText } from "../utils/helpers";
+import type { SelectChangeEvent } from "@mui/material/Select";
+import type { Settings } from "../context/type";
 
 export default function Settings() {
   // Importing Context Properties
@@ -36,11 +36,14 @@ export default function Settings() {
     ayatSize: textSettings?.ayatSize,
     translationSize: textSettings?.translationSize,
     ayatFont: textSettings?.ayatFont,
+    bookmark: textSettings?.bookmark,
   });
 
   // UI Feedback States
   const [isLoading, setIsLoading] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSave = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -98,8 +101,9 @@ export default function Settings() {
   return (
     <Box sx={{ bgcolor: "background.default", minHeight: "100vh", pb: 4 }}>
       {/* Top App Bar */}
+
       <AppBar
-        position="static"
+        position="sticky"
         elevation={0}
         sx={{
           bgcolor: "primary.main",
@@ -114,7 +118,7 @@ export default function Settings() {
             color="inherit"
             aria-label="back"
             onClick={() => {
-              window.history.back();
+              navigate("/");
             }}
             sx={{ mr: 2 }}
           >
@@ -158,7 +162,6 @@ export default function Settings() {
                 <MenuItem value="ar">Arabic</MenuItem>
                 <MenuItem value="en">English</MenuItem>
                 <MenuItem value="bn">Bengali</MenuItem>
-                <MenuItem value="hn">Hindi</MenuItem>
               </Select>
             </FormControl>
 
@@ -365,21 +368,16 @@ export default function Settings() {
       </Container>
 
       {/* Success Alert Snackbar */}
-      <Snackbar
-        open={showAlert}
-        autoHideDuration={3000}
-        onClose={() => setShowAlert(false)}
-        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-      >
-        <Alert
-          onClose={() => setShowAlert(false)}
-          severity="success"
-          variant="standard"
-          sx={{ width: "100%", borderRadius: 1.5 }}
-        >
-          Changes saved successfully!
-        </Alert>
-      </Snackbar>
+      <AlertPopup
+        message="Changes saved successfully!"
+        duration={2000}
+        horizontal="center"
+        vertical="bottom"
+        showAlert={showAlert}
+        setShowAlert={setShowAlert}
+        severity="success"
+        variant="standard"
+      />
     </Box>
   );
 }
