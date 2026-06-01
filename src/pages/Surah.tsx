@@ -173,7 +173,7 @@ export default function Surah() {
                 id={String(verse.id + 1)}
                 onClick={() => {
                   // Checking if bookmark not save in ls then save it else remove it from ls
-                  if (textSettings.bookmark != `${id}:${verse.id}`) {
+                  if (textSettings?.bookmark != `${id}:${verse.id}`) {
                     handleBookmarkSave(`${id}:${verse.id}`);
                     setShowAlert(true);
                   } else {
@@ -191,7 +191,7 @@ export default function Surah() {
                   position: "relative", // Absolute positioning ke liye parent ko relative kiya
                   borderColor: () => {
                     if (
-                      Number(textSettings.bookmark.split(":")[1]) === verse.id
+                      Number(textSettings?.bookmark?.split(":")[1]) === verse.id
                     ) {
                       return "#3b8a52";
                     } else {
@@ -254,7 +254,8 @@ export default function Surah() {
                     component="h2"
                     sx={{
                       color: () =>
-                        Number(textSettings.bookmark.split(":")[1]) === verse.id
+                        Number(textSettings?.bookmark?.split(":")[1]) ===
+                        verse.id
                           ? "#3b8a52"
                           : "text.primary",
                       fontFamily: isArabic()
