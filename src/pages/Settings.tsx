@@ -182,6 +182,7 @@ export default function Settings() {
                 <MenuItem value="db">Disable</MenuItem>
                 <MenuItem value="en">English</MenuItem>
                 <MenuItem value="bn">Bengali</MenuItem>
+                <MenuItem value="hl">Hinglish</MenuItem>
                 <MenuItem value="hn">Hindi</MenuItem>
               </Select>
             </FormControl>

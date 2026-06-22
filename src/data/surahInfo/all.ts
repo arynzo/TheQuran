@@ -1,4 +1,4 @@
-type surahInfo = {
+export type surahInfoType = {
   id: number;
   name: string;
   arabic: string;
@@ -6,7 +6,7 @@ type surahInfo = {
   total_ayats: number;
 };
 
-const info: surahInfo[] = [
+const info: surahInfoType[] = [
   {
     id: 1,
     name: "Al-Faatiha",

@@ -15,9 +15,9 @@ import AlertPopup from "../components/Alert";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 import { useGlobalContext } from "../context/context";
-import type { TranslationType } from "../data/lang/tn/ar/type";
-import type { meanType } from "../data/lang/mn/en/type";
-import type { surahType } from "../data/surahInfo/type";
+import type { TranslationType } from "../data/lang/tn/type";
+import type { meanType } from "../data/lang/mn/type";
+import info, { type surahInfoType } from "../data/surahInfo/all";
 
 export default function Surah() {
   const { id } = useParams();
@@ -28,7 +28,9 @@ export default function Surah() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [showAlert, setShowAlert] = useState<boolean>(false);
 
-  const [surahInfo, setSurahInfo] = useState<null | surahType>(null);
+  const [surahInfo, setSurahInfo] = useState<null | surahInfoType>(
+    info[Number(id) - 1],
+  );
   const [ayat, setAyat] = useState<null | TranslationType[]>(null);
   const [mean, setMean] = useState<null | meanType[]>(null);
 
@@ -41,22 +43,18 @@ export default function Surah() {
 
     const loadSurahData = async () => {
       try {
-        // Import surahInfo
-        const info = await import(`../data/surahInfo/${id}.ts`);
-        setSurahInfo(info.default);
-
         // Import ayat
         const tn = await import(
-          `../data/lang/tn/${textSettings.ayatTranslation}/${id}.ts`
+          `../data/lang/tn/${textSettings.ayatTranslation}.ts`
         );
-        setAyat(tn.default);
+        setAyat(tn.default[Number(id) - 1]);
 
         // Import mean
         if (textSettings.secondTranslation != "db") {
           const mn = await import(
-            `../data/lang/mn/${textSettings.secondTranslation}/${id}.ts`
+            `../data/lang/mn/${textSettings.secondTranslation}.ts`
           );
-          setMean(mn.default);
+          setMean(mn.default[Number(id) - 1]);
         }
 
         setIsLoading(false);
@@ -67,6 +65,7 @@ export default function Surah() {
 
     loadSurahData();
   }, [
+    surahInfo,
     textSettings.ayatTranslation,
     textSettings.secondTranslation,
     navigate,
